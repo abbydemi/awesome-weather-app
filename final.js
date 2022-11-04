@@ -22,16 +22,30 @@ let day = days[now.getDay()];
 li.innerHTML = `${day} ${hours}:${minutes}`;
 
 function displayTemperature(response) {
-  console.log(response.data);
+  //console.log(response.data);
+  let temperatureElement = document.querySelector("#temperature");
+  //let cityElement = document.querySelector("#city");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let descriptionElement = document.querySelector("#description");
+  let iconElement = document.querySelector("#icon");
+
+  //cityElement.innerHTML = response.data.name;
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  descriptionElement.innerHTML = response.data.weather[0].main;
+  iconElement.innerHTML = iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = response.data.wind.speed;
-  document.querySelector("#description").innerHTML =
-    response.data.weather[0].main;
+  //document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
+  //document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  //document.querySelector("#wind").innerHTML = response.data.wind.speed;
+  //document.querySelector("#description").innerHTML = response.data.weather[0].main;
 }
 
 function search(event) {
