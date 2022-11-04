@@ -18,52 +18,56 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <form>
-          <div class="form-city">
-            <input type="text" placeholder="Enter city" id="search-input" />
-            <button type="submit" class="btn btn-primary">Search</button>
-          </div>
-        </form>
-        <h1 id="city">Abuja, Nigeria</h1>
-        <ul>
-          <li class="time">Wednesday 22:00</li>
-          <li id="description">Partly cloudy</li>
-        </ul>
-        <div class="row">
-          <div class="col-6">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/rain_light.png"
-              alt="cloud-icon"
-            />
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <form>
+            <div class="form-city">
+              <input type="text" placeholder="Enter city" id="search-input" />
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+          </form>
+          <h1 id="city">Abuja, Nigeria</h1>
+          <ul>
+            <li class="time">Wednesday 22:00</li>
+            <li id="description">Partly cloudy</li>
+          </ul>
+          <div class="row">
+            <div class="col-6">
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/rain_light.png"
+                alt="cloud-icon"
+              />
 
-            <span class="temp" id="temperature">25</span>
-            <span class="units">
-              <a href="#" id="celsius-unit">°C</a> |
-              <a href="#" id="fahrenheit-unit">°F</a>
-            </span>
-          </div>
-          <div class="col-6">
-            <ul>
-              <li>Precipitation 17%</li>
-              <li>Humidity: <span id="humidity">70</span>%</li>
-              <li>Wind: <span id="wind">7</span>km/hr</li>
-            </ul>
-            <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-primary">Left</button>
-              <button type="button" class="btn btn-primary">Middle</button>
-              <button type="button" class="btn btn-primary">Right</button>
+              <span class="temp" id="temperature">25</span>
+              <span class="units">
+                <a href="#" id="celsius-unit">°C</a> |
+                <a href="#" id="fahrenheit-unit">°F</a>
+              </span>
+            </div>
+            <div class="col-6">
+              <ul>
+                <li>Precipitation 17%</li>
+                <li>Humidity: <span id="humidity">70</span>%</li>
+                <li>Wind: <span id="wind">7</span>km/hr</li>
+              </ul>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary">Left</button>
+                <button type="button" class="btn btn-primary">Middle</button>
+                <button type="button" class="btn btn-primary">Right</button>
+              </div>
             </div>
           </div>
         </div>
+        <small>
+          <a
+            href="https://github.com/abbydemi/vanilla-weather-app"
+            target="blank"
+          >
+            Open-source code<a> By Abbydemi</a>
+          </a>
+        </small>
       </div>
     </div>
-
-    <p>
-      <a href="https://github.com/abbydemi/awesome-weather-app"
-        >GitHub Repository
-      </a>
-    </p>
 
     <script src="final.js"></script>
   </body>
