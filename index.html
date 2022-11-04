@@ -20,10 +20,20 @@
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
-          <form>
-            <div class="form-city">
-              <input type="text" placeholder="Enter city" id="search-input" />
-              <button type="submit" class="btn btn-primary">Search</button>
+          <form id="search-form">
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="search"
+                  placeholder="Enter city"
+                  class="form-control"
+                  id="search-input"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-3">
+                <button type="submit" class="btn btn-primary">Search</button>
+              </div>
             </div>
           </form>
           <h1 id="city">Abuja</h1>

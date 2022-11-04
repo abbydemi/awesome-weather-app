@@ -24,13 +24,13 @@ li.innerHTML = `${day} ${hours}:${minutes}`;
 function displayTemperature(response) {
   //console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
-  //let cityElement = document.querySelector("#city");
+  let cityElement = document.querySelector("#city");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let descriptionElement = document.querySelector("#description");
   let iconElement = document.querySelector("#icon");
 
-  //cityElement.innerHTML = response.data.name;
+  cityElement.innerHTML = response.data.name;
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
@@ -41,29 +41,28 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  document.querySelector("#city").innerHTML = response.data.name;
+  //document.querySelector("#city").innerHTML = response.data.name;
   //document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
   //document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   //document.querySelector("#wind").innerHTML = response.data.wind.speed;
   //document.querySelector("#description").innerHTML = response.data.weather[0].main;
 }
 
-function search(event) {
-  event.preventDefault();
+function search(city) {
   let apiKey = "1964d0e3fca31100a0a004e7ae8cad28";
-  let searchInput = document.querySelector("#search-input").value; //city
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
   //axios.get(apiUrl).then(displayTemperature);
   axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemperature);
-
-  //let searchInput = document.querySelector("#search-input");
-  //let h1 = document.querySelector("#city");
-
-  // h1.innerHTML = `${searchInput.value}`;
 }
 
-let form = document.querySelector("form");
-form.addEventListener("submit", search);
+function submitSearch(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#search-input"); //city
+  search(searchInput.value);
+}
+search("New York");
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", submitSearch);
 
 function tempCel() {
   let temperature = document.querySelector("#temperature");
