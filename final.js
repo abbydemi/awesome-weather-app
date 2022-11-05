@@ -31,6 +31,8 @@ function displayTemperature(response) {
   let descriptionElement = document.querySelector("#description");
   let iconElement = document.querySelector("#icon");
 
+  celsiusTemp = response.data.main.temp;
+
   cityElement.innerHTML = response.data.name;
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   humidityElement.innerHTML = response.data.main.humidity;
@@ -61,22 +63,28 @@ function submitSearch(event) {
   let searchInput = document.querySelector("#search-input"); //city
   search(searchInput.value);
 }
-search("New York");
+
+function displayCelciusTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
+}
+let celsiusLink = document.querySelector("#celsius-unit");
+celsiusLink.addEventListener("click", displayCelciusTemp);
+
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let fahTemp = (celsiusTemp * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahTemp);
+}
+
+let celsiusTemp = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submitSearch);
 
-function tempCel() {
-  let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = `26`;
-}
-let celsius = document.querySelector("#celsius-unit");
-celsius.addEventListener("click", tempCel);
+let fahrenheitLink = document.querySelector("#fahrenheit-unit");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
-function tempFah() {
-  let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = `76`;
-}
-let fahrenheit = document.querySelector("#fahrenheit-unit");
-fahrenheit.addEventListener("click", tempFah);
-
-//let fahrenheit = document.querySelector("fahrenheit-unit");
+search("New York");
