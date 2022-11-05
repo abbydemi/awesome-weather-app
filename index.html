@@ -36,27 +36,32 @@
               </div>
             </div>
           </form>
-          <h1 id="city"></h1>
-          <ul>
-            <li class="time"></li>
-            <li id="description"></li>
-          </ul>
+          <div class="current-city">
+            <h1 id="city"></h1>
+            <ul>
+              <li class="time"></li>
+              <li id="description"></li>
+            </ul>
+          </div>
           <div class="row">
             <div class="col-6">
-              <img src="" alt="cloud-icon" id="icon" />
+              <div class="current-weather">
+                <img src="" alt="cloud-icon" id="icon" />
 
-              <span class="temp" id="temperature"></span>
-              <span class="units">
-                <a href="#" id="celsius-unit">°C</a> |
-                <a href="#" id="fahrenheit-unit">°F</a>
-              </span>
+                <span class="temp" id="temperature"></span>
+                <span class="units">
+                  <a href="#" id="celsius-unit">°C</a> |
+                  <a href="#" id="fahrenheit-unit">°F</a>
+                </span>
+              </div>
             </div>
             <div class="col-6">
-              <ul>
-                <li>Precipitation 17%</li>
-                <li>Humidity: <span id="humidity">70</span>%</li>
-                <li>Wind: <span id="wind">7</span>km/hr</li>
-              </ul>
+              <div class="summary">
+                <ul>
+                  <li>Humidity: <span id="humidity">70</span>%</li>
+                  <li>Wind: <span id="wind">7</span>km/hr</li>
+                </ul>
+              </div>
               <div class="btn-group" role="group" aria-label="Basic example">
                 <button type="button" class="btn btn-primary">Left</button>
                 <button type="button" class="btn btn-primary">Middle</button>
