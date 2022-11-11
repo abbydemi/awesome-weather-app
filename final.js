@@ -22,22 +22,29 @@ let day = days[now.getDay()];
 
 li.innerHTML = `${day} ${hours}:${minutes}`;
 
-function displayForecast() {
-  let forecastElement = document.queryselector("#weather-forecast");
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
   let forecastHTML = "";
-  forecastHTML = `
-
-  <div class="row">
+  forecastHTML =
+    forecastHTML +
+    `
     <div class="col-2">
       <div class="forecast-day">Thur</div>
-      <img src="openweathermap.org/img/wn/50d@2x-png" alt="" width="36" />
+      <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" width="36" />
       <div class="forecast-temp">
         <span class="forecast-temp-high">18</span>
         <span class="forecast-temp-low">12</span>
       </div>
-    </div>
-  </div>`;
+    </div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "1964d0e3fca31100a0a004e7ae8cad28";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperature(response) {
@@ -67,6 +74,8 @@ function displayTemperature(response) {
   //document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   //document.querySelector("#wind").innerHTML = response.data.wind.speed;
   //document.querySelector("#description").innerHTML = response.data.weather[0].main;
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -106,4 +115,4 @@ let fahrenheitLink = document.querySelector("#fahrenheit-unit");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 search("New York");
-displayForecast();
+//displayForecast();
