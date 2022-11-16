@@ -1,5 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8fafc67;
 }
 h1 {
   color: #7c7c7c;
@@ -21,6 +22,7 @@ li {
 .weather-app-wrapper {
   max-width: 600px;
   margin: 30px;
+  background-color: #dfe9f367;
 }
 
 .weather-app {
@@ -52,10 +54,25 @@ form {
   margin-bottom: 35px;
 }
 
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border: none;
+  padding: 15px 0px;
+  margin: 3px;
+}
+.card:hover {
+  background-color: #9cb9d167;
+}
 .weather-forecast {
-  margin-top: 20px;
-  text-align: justify;
-  display: inline-flexbox;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.weather-forecast img {
+  margin-left: 10px;
+}
+.forecast-temp-low {
+  opacity: 0.5;
 }
 .forecast-day {
   font-size: 16px;

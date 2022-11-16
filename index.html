@@ -13,6 +13,10 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
+    <script
+      src="https://kit.fontawesome.com/dd787c02ac.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style.css" />
     <title>newweatherapp</title>
   </head>
@@ -22,7 +26,7 @@
         <div class="weather-app">
           <form id="search-form">
             <div class="row">
-              <div class="col-6">
+              <div class="col-5">
                 <input
                   type="search"
                   placeholder="Enter city"
@@ -34,6 +38,17 @@
               <div class="col-3">
                 <button type="submit" class="btn btn-primary">Search</button>
               </div>
+
+              <div class="col-4">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="current-location"
+                >
+                  Your Location
+                  <i class="fa-solid fa-location-dot"></i>
+                </button>
+              </div>
             </div>
           </form>
           <div class="current-city">
@@ -43,24 +58,26 @@
               <li id="description"></li>
             </ul>
           </div>
-          <div class="row">
-            <div class="col-6">
-              <div class="current-weather">
-                <img src="" alt="" id="icon" />
+          <div class="weather">
+            <div class="row">
+              <div class="col-6">
+                <div class="current-weather">
+                  <img src="" alt="" id="icon" />
 
-                <span class="temp" id="temperature"></span>
-                <span class="units">
-                  <a href="#" id="celsius-unit">°C</a> |
-                  <a href="#" id="fahrenheit-unit">°F</a>
-                </span>
+                  <span class="temp" id="temperature"></span>
+                  <span class="units">
+                    <a href="#" id="celsius-unit">°C</a> |
+                    <a href="#" id="fahrenheit-unit">°F</a>
+                  </span>
+                </div>
               </div>
-            </div>
-            <div class="col-6">
-              <div class="summary">
-                <ul>
-                  <li>Humidity: <span id="humidity"></span>%</li>
-                  <li>Wind: <span id="wind"></span>km/hr</li>
-                </ul>
+              <div class="col-6 max">
+                <div class="summary">
+                  <ul>
+                    <li>Humidity: <span id="humidity"></span>%</li>
+                    <li>Wind: <span id="wind"></span>km/hr</li>
+                  </ul>
+                </div>
               </div>
               <div class="weather-forecast" id="forecast"></div>
             </div>
